@@ -1,6 +1,6 @@
 # Weather App
 
-A comprehensive weather application providing current conditions, hourly forecasts, and 5-day outlooks for any location worldwide.
+A comprehensive weather application providing current conditions, 48-hour forecasts, and 5-day outlooks for any location worldwide.
 
 ## features
 
