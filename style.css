@@ -1,0 +1,569 @@
+body{
+    margin:0;
+    background-image: url(images/blue\ background.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: sticky;
+}
+
+header h1{
+    color:#fff;
+    font-size: 60px;
+}
+
+header .search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-message{
+    display: none;
+}
+
+header .search-bar input{
+    padding: 10px;
+    width: 300px;
+    border-radius: 40px;
+    border: none;
+    font-size: 20px;
+}
+
+header .search-bar i{
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+}
+
+header .search-bar i:hover{
+    color: #b6b6b6;
+}
+
+#location-button{
+    width: 200px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    margin-top: 30px;
+    border-radius: 40px;
+    color: #fff;
+    background-color: green;
+    box-shadow: 10px 10px 14px black;
+}
+
+.fa-solid.fa-location-dot{
+    margin-left: 5px;
+}
+
+header #error-header{
+    font-size: 16px;
+    display: none;
+    color: #8b0000;
+    margin-left: -100px;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: 100px;
+}
+
+main .weather-container{
+    width: 1000px;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    background-color:rgba(255,255,255,0.15);
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1000px;
+    overflow: auto;
+}
+
+main .weather-container h1{
+    margin-top: 20px;
+    color:#fff;
+    font-size: 40px;
+}
+
+main .weather-container #deegres-header{
+    font-size: 70px;
+    margin-top: -10px;
+    font-weight: lighter;
+    font-family: monospace;
+}
+
+.weather-container .convert-temp-container{
+   display: grid;
+   grid-template-columns: repeat(2,150px);
+    border:3px solid;
+    border-radius: 40px;
+    width: 300px;
+    height: 45px;
+    align-self: center;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.weather-container .convert-temp-container button{
+    font-size: 20px;
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    margin-top: 0px;
+    height: 45px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.weather-container .convert-temp-container #celcious-item{
+    background-color: rgb(39, 115, 255);
+    text-decoration: underline;  
+    text-align: center;
+}
+
+.weather-container .convert-temp-container #fahr-item{
+    border-left: 3px solid black;
+}
+
+.weather-container .temp-icon-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.weather-container .temp-icon-container i{
+    font-size: 50px;
+    margin-top: -70px;
+    margin-left: 20px;
+}
+
+
+.weather-container #weather-description{
+    margin-top: -40px;
+    color:#0065a0;
+    font-size:30px;
+}
+
+.weather-container .humidity-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -60px;
+    margin-left: 0;
+}
+
+.weather-container .humidity-info h5{
+    color:#0065a0;
+}
+
+.weather-container .humidity-info #feels-like-text{
+    margin-left: 30px;
+}
+
+.wind-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: -30px;
+    color:#0065a0;
+    justify-content: center;
+    align-items: center;
+}
+
+#wind-deg{
+    margin-left:30px ;
+}
+
+.max-min-temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    color: #0065a0;
+}
+
+.fa-solid.fa-temperature-arrow-up{
+    color:rgb(207, 0, 0);
+    font-size: 20px;
+}
+
+.fa-solid.fa-temperature-arrow-down{
+    color: rgb(0, 0, 190);
+    font-size: 20px;
+}
+
+#min-temp{
+    margin-left: 30px;
+}
+
+.max-min-temp h5{
+    font-size: 20px;
+}
+
+#date-text{
+    color:#0065a0;
+    font-size: 25px;
+    margin-top: -5px;
+}
+
+.forecast-container{
+    display: grid;
+    grid-template-columns: repeat(16,200px);
+    background-color: transparent;
+    margin-top: 20px;
+    scrollbar-width: 50px;
+    padding: 20px;
+}
+
+.forecast-item{
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100px;
+    margin-top: -10px;
+    box-shadow: 10px 10px 15px black;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    height: 150px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 35px;
+}
+
+.forecast-item i{
+    font-size: 40px;
+    margin-top: -10px;
+}
+
+.forecast-item h3{
+    margin-top: -5px;
+}
+
+.forecast-date{
+    font-size: 17px;
+}
+
+.forecast-container-days{
+    display: grid;
+    grid-template-columns: repeat(6,250px);
+    margin-bottom: 20px;
+}
+
+#forecast-days-header{
+    color:#0065a0
+}
+
+.forecast-container-days .forecast-item-days{
+    backdrop-filter: blur(20px);
+    height: 200px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px black;
+    padding: 35px;
+    color: #fff;
+}
+
+.forecast-item-days i{
+    font-size: 40px;
+}
+
+.forecast-item-days .max-min-forecast{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: flex-start;
+    align-items: center;
+    width: 200px;
+    margin-top: -10px;
+}
+
+.max-min-forecast i{
+    font-size: 11px;
+}
+
+.max-min-forecast h3{
+    font-size: 17px;
+}
+
+.max-min-forecast .min-forecast-temp{
+    margin-left: 30px;
+}
+
+@media (max-width:425px){
+    header h1{
+        font-size:40px;
+    }
+
+    header .search-bar input{
+        width: 200px;
+        padding: 5px;
+    }
+
+    header .search-bar i{
+        font-size: 20px;
+    }
+
+    #location-button{
+        width: 200px;
+        padding: 7px;
+        font-size: 17px;
+        margin-top: 20px;
+    }
+
+    main .weather-container{
+        width: 90%;
+        margin-top: 750px;
+    }
+
+    main .weather-container h1{
+        font-size: 40px;
+    }
+
+    main .weather-container #deegres-header{
+        font-size: 60px;
+    }
+
+    main .weather-container #weather-icon{
+        margin-left: -5px;
+    }
+
+    .weather-container #weather-description{
+        font-size: 20px;
+    }
+
+    .weather-container .humidity-info{
+        font-size: 17px;
+        margin-top:-40px;
+    }
+
+    .weather-container .wind-container{
+        font-size: 17px;
+        margin-top: -40px;
+    }
+
+    .weather-container .max-min-temp h5{
+        font-size: 18px;
+        margin-top: 25px;
+    }
+
+    #date-text{
+        font-size: 20px;
+        margin-top: -15px;
+    }
+
+    .weather-container .convert-temp-container{
+        grid-template-columns: repeat(2,130px);
+        width: 260px;
+        height: 40px;
+        margin-top: -10px;
+    }
+
+    .weather-container .convert-temp-container button{
+        font-size: 17px;
+    }
+
+    .forecast-container{
+        grid-template-columns: repeat(16,170px);
+    }
+
+    .forecast-item{
+        width: 80px;
+        height: 120px;
+    }
+
+    .forecast-item i{
+        font-size: 30px;
+    }
+
+    .forecast-item h3{
+        font-size: 18px;
+    }
+
+    .forecast-date{
+        font-size: 15px;
+    }
+
+    #forecast-days-header{
+        font-size: 25px;
+        margin-top: -20px;
+    }
+
+    .forecast-container-days{
+        grid-template-columns: repeat(6,200px);
+    }
+
+    .forecast-container-days .forecast-item-days{
+        width: 110px;
+        height: 150px;
+        padding: 25px;
+    }
+
+    .forecast-item-days i{
+        font-size: 30px;
+        margin-top: -200px;
+    }
+
+    .forecast-item-days .average-forecast-temp{
+        margin-top: 0px;
+    }
+
+    .max-min-forecast{
+        margin-left: -15px;
+    }
+
+    .max-min-forecast h3{
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .max-min-forecast i{
+        font-size: 11px
+    };
+
+    .max-min-forecast .min-forecast-temp{
+        margin-left: 10px;
+    }
+
+     .forecast-date-days{
+        font-size: 17px;
+        margin-top: 5px;
+     }
+}
+
+@media (max-width:768px){
+    header h1{
+        font-size: 45px;
+    }
+
+    header .search-bar input{
+        width: 250px;
+        padding: 10px;
+    }
+
+    #location-button{
+        width: 200px;
+        padding: 10px;
+        font-size: 19px;
+    }
+
+    main .weather-container{
+        width: 80%;
+    }
+
+    main .weather-container h1{
+        font-size: 40px;
+    }
+
+    main .weather-container #deegres-header{
+        font-size: 60px;
+    }
+
+
+    .weather-container #weather-description{
+        font-size: 25px;
+    }
+
+    .weather-container .max-min-temp h5{
+        font-size:19px;
+    }
+
+    #date-text{
+        font-size: 22px;
+        margin-top: -15px;
+    }
+
+    .weather-container .convert-temp-container{
+        width: 280px;
+        grid-template-columns: repeat(2,140px);
+        margin-top: -10px;
+    }
+
+    .weather-container .convert-temp-container button{
+        font-size: 18px;
+    }
+
+    .forecast-container{
+        grid-template-columns: repeat(16,180px);
+    }
+
+    .forecast-item{
+        width: 85px;
+        height: 120px;
+    }
+
+    .forecast-item i{
+        font-size: 35px;
+    }
+
+    .forecast-date{
+        margin-top: 20px;
+    }
+
+    .forecast-item h3{
+        font-size: 16px;
+    }
+
+    #forecast-days-header{
+        font-size: 25px;
+        margin-top: -15px;
+    }
+
+    .forecast-container-days{
+        grid-template-columns: repeat(6,220px);
+    }
+
+    .forecast-container-days .forecast-item-days{
+        width: 120px;
+        height:150px ;
+        padding: 30px;
+    }
+
+    .forecast-item-days i{
+        font-size: 35px;
+        margin-top: -300px;
+    }
+
+    .forecast-item-days .average-forecast-temp{
+        margin-top: 0px;
+    }
+
+    .max-min-forecast{
+        margin-left: -15px;
+    }
+
+    .max-min-forecast h3{
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .forecast-date-days{
+        font-size: 18px;
+        margin-top:5px ;
+    }
+
+}

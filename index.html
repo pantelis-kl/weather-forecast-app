@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+    <script src="https://kit.fontawesome.com/8365c3ba4d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form class="weather-form" id="weather-form">
+        <header>
+           <h1>Weather</h1>
+            <div class="search-bar">
+                <input type="search" placeholder="Enter city's name" id="weather-input">
+                <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
+            </div>
+            <h3 id="error-header">Please enter a valid city name</h3>
+            <h3 id="loading-message">Loading...⏳</h3>
+            <button id="location-button" type="button">Use My Location<i class="fa-solid fa-location-dot"></i></button>
+       </header>
+       <main>
+           <div class="weather-container">
+               <h1 id="citys-name"></h1>
+               <div class="temp-icon-container">
+                   <h1 id="deegres-header"></h1>
+                   <i id="weather-icon"></i>
+               </div>
+               <h5 id="weather-description"></h5>
+            <div class="humidity-info">
+                <h5 id="humidity-text"></h5>
+                <h5 id="feels-like-text"></h5>
+           </div>
+           <div class="wind-container">
+                <h5 id="wind-speed"></h5>
+                <h5 id="wind-deg"></h5>
+           </div>
+           <div class="max-min-temp">
+                <h5 id="max-temp"></h5>
+                <h5 id="min-temp"></h5>
+           </div>
+           <h5 id="date-text"></h5>
+           <div class="convert-temp-container">
+             <button id="celcious-item">Celsius(°C)</button>
+             <button id="fahr-item">Fahreneit(°F)</button>
+            </div>
+            <div class="forecast-container">
+              <div class="forecast-item" id="first-forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+              <div class="forecast-item">
+                <i class="forecast-icon"></i>
+                <h3 class="forecast-temp"></h3>
+                <h3 class="forecast-time"></h3>
+                <h3 class="forecast-date"></h3>
+              </div>
+           </div>
+           <h2 id="forecast-days-header">5 Day Forecast</h2>
+           <div class="forecast-container-days">
+              <div class="forecast-item-days">
+                 <i class="forecast-icon-days"></i>
+                 <h3 class="average-forecast-temp"></h3>
+                 <div class="max-min-forecast">
+                    <h3 class="forecast-temp-days"></h3>
+                    <h3 class="min-forecast-temp"></h3>
+                 </div>
+                  <h3 class="forecast-date-days"></h3>
+              </div>
+              <div class="forecast-item-days">
+                 <i class="forecast-icon-days"></i>
+                 <h3 class="average-forecast-temp"></h3>
+                 <div class="max-min-forecast">
+                    <h3 class="forecast-temp-days"></h3>
+                    <h3 class="min-forecast-temp"></h3>
+                 </div>
+                  <h3 class="forecast-date-days"></h3>
+              </div>
+              <div class="forecast-item-days">
+                 <i class="forecast-icon-days"></i>
+                 <h3 class="average-forecast-temp"></h3>
+                 <div class="max-min-forecast">
+                    <h3 class="forecast-temp-days"></h3>
+                    <h3 class="min-forecast-temp"></h3>
+                 </div>
+                  <h3 class="forecast-date-days"></h3>
+              </div>
+              <div class="forecast-item-days">
+                 <i class="forecast-icon-days"></i>
+                 <h3 class="average-forecast-temp"></h3>
+                 <div class="max-min-forecast">
+                    <h3 class="forecast-temp-days"></h3>
+                    <h3 class="min-forecast-temp"></h3>
+                 </div>
+                  <h3 class="forecast-date-days"></h3>
+              </div>
+              <div class="forecast-item-days">
+                 <i class="forecast-icon-days"></i>
+                 <h3 class="average-forecast-temp"></h3>
+                 <div class="max-min-forecast">
+                    <h3 class="forecast-temp-days"></h3>
+                    <h3 class="min-forecast-temp"></h3>
+                 </div>
+                  <h3 class="forecast-date-days"></h3>
+              </div>
+           </div>
+           </div>
+       </main>
+    </form>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
