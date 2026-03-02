@@ -21,3 +21,12 @@ JavaScript -- DOM manipulation,real world updates with setInterval and fetch dat
 OpenWeatherMAP API -- real time weather data
 Geolocation API -- Browsed based location detection
 
+## API Key Setup
+
+This app requires a free OpenWeatherMap API key which is free
+
+## Steps
+
+1. Sign up at [text](https://home.openweathermap.org/users/sign_in) to get the API key
+2. Copy API and paste inside the config-test.js 
+3. Open index.html and the app should work !
